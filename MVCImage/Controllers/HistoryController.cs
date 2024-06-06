@@ -25,9 +25,5 @@ namespace MVCImage.Controllers
             await _apiService.ClearHistoriesAsync();
             return RedirectToAction(nameof(Index));
         }
-        public IActionResult Success()
-        {
-            return View();
-        }
     }
 }

@@ -6,6 +6,7 @@
         public string Action { get; set; }
         public string Entity { get; set; }
         public int EntityId { get; set; }
+        public string Details { get; set; } // Thêm thuộc tính Details
         public DateTime Timestamp { get; set; }
     }
 }

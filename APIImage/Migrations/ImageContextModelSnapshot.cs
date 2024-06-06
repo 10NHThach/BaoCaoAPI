@@ -88,6 +88,10 @@ namespace APIImage.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Details")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Entity")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

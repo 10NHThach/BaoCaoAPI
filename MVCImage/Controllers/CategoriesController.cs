@@ -54,7 +54,7 @@ namespace MVCImage.Controllers
             if (ModelState.IsValid)
             {
                 await _apiService.CreateCategoryAsync(category);
-                await _apiService.LogHistoryAsync("Create", "Category", category.CategoryId); // Log history
+                await _apiService.LogHistoryAsync("Create", "Category", category.CategoryId, $"Đã tạo danh mục có tên: {category.Name}"); // Log history
                 TempData["SuccessMessage"] = "Danh mục được tạo thành công.";
                 return RedirectToAction(nameof(Index));
             }
@@ -95,7 +95,7 @@ namespace MVCImage.Controllers
                 }
 
                 await _apiService.UpdateCategoryAsync(id, category);
-                await _apiService.LogHistoryAsync("Edit", "Category", category.CategoryId); // Log history
+                await _apiService.LogHistoryAsync("Edit", "Category", category.CategoryId, $"Đã sửa danh mục có tên: {category.Name}"); // Log history
                 TempData["SuccessMessage"] = "Danh mục được cập nhật thành công.";
                 return RedirectToAction(nameof(Index));
             }
@@ -125,8 +125,9 @@ namespace MVCImage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var category = await _apiService.GetCategoryByIdAsync(id);
             await _apiService.DeleteCategoryAsync(id);
-            await _apiService.LogHistoryAsync("Delete", "Category", id); // Log history
+            await _apiService.LogHistoryAsync("Delete", "Category", id, $"Đã xóa danh mục có tên: {category.Name}"); // Log history
             TempData["SuccessMessage"] = "Đã xóa danh mục thành công.";
             return RedirectToAction(nameof(Index));
         }

@@ -15,6 +15,7 @@
                 <th>Action</th>
                 <th>Entity</th>
                 <th>EntityId</th>
+                <th>Details</th> <!-- Thêm cột Details -->
                 <th>Timestamp</th>
             </tr>
         </thead>
@@ -22,7 +23,7 @@
             @if (!Model.Any())
             {
                 <tr>
-                    <td colspan="4" class="text-center">Không có lịch sử</td>
+                    <td colspan="5" class="text-center">Không có lịch sử</td>
                 </tr>
             }
             else
@@ -33,6 +34,7 @@
                         <td>@item.Action</td>
                         <td>@item.Entity</td>
                         <td>@item.EntityId</td>
+                        <td>@item.Details</td> <!-- Hiển thị Details -->
                         <td>@item.Timestamp.ToString("dd/MM/yyyy HH:mm:ss")</td>
                     </tr>
                 }

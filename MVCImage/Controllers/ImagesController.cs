@@ -54,7 +54,7 @@ namespace MVCImage.Controllers
             if (ModelState.IsValid)
             {
                 await _apiService.CreateImageAsync(imageDto);
-                await _apiService.LogHistoryAsync("Create", "Image", imageDto.ImageId); // Log history
+                await _apiService.LogHistoryAsync("Create", "Image", 0, $"Đã tạo ảnh có tiêu đề: {imageDto.Title}");
                 TempData["SuccessMessage"] = "Hình ảnh được tạo thành công.";
                 return RedirectToAction(nameof(Index));
             }
@@ -94,7 +94,7 @@ namespace MVCImage.Controllers
             if (ModelState.IsValid)
             {
                 await _apiService.UpdateImageAsync(id, image);
-                await _apiService.LogHistoryAsync("Edit", "Image", image.ImageId); // Log history
+                await _apiService.LogHistoryAsync("Edit", "Image", id, $"Đã sửa ảnh có tiêu đề: {image.Title}");
                 TempData["SuccessMessage"] = "Đã cập nhật hình ảnh thành công.";
                 return RedirectToAction(nameof(Index));
             }
@@ -123,8 +123,14 @@ namespace MVCImage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var image = await _apiService.GetImageByIdAsync(id); // Lấy thông tin của hình ảnh
+            if (image == null)
+            {
+                return NotFound();
+            }
+
             await _apiService.DeleteImageAsync(id);
-            await _apiService.LogHistoryAsync("Delete", "Image", id); // Log history
+            await _apiService.LogHistoryAsync("Delete", "Image", id, $"Đã xóa ảnh có tiêu đề: {image.Title}");
             TempData["SuccessMessage"] = "Đã xóa hình ảnh thành công.";
             return RedirectToAction(nameof(Index));
         }
@@ -148,6 +154,8 @@ namespace MVCImage.Controllers
             if (images.Any())
             {
                 TempData["SuccessMessage"] = "Tìm kiếm thành công.";
+                string details = $"Tìm kiếm hình ảnh có tiêu đề: '{title}' và mô tả: '{description}'";
+                await _apiService.LogHistoryAsync("Search", "Image", 0, details); // Ghi lịch sử tìm kiếm với thông tin chi tiết
             }
             else
             {
