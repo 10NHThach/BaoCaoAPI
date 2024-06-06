@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ACER\\OneDrive\\Desktop\\Folder-Tổng\\LTW2\\APIImage\\APIImage\\APIImage.csproj": {}
+    "D:\\Đi Học\\[K19]Thực Hành Đồ Án CNTT WEB_API\\Source Code\\BaoCaoAPI\\APIImage\\APIImage.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ACER\\OneDrive\\Desktop\\Folder-Tổng\\LTW2\\APIImage\\APIImage\\APIImage.csproj": {
+    "D:\\Đi Học\\[K19]Thực Hành Đồ Án CNTT WEB_API\\Source Code\\BaoCaoAPI\\APIImage\\APIImage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ACER\\OneDrive\\Desktop\\Folder-Tổng\\LTW2\\APIImage\\APIImage\\APIImage.csproj",
+        "projectUniqueName": "D:\\Đi Học\\[K19]Thực Hành Đồ Án CNTT WEB_API\\Source Code\\BaoCaoAPI\\APIImage\\APIImage.csproj",
         "projectName": "APIImage",
-        "projectPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\Folder-Tổng\\LTW2\\APIImage\\APIImage\\APIImage.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ACER\\OneDrive\\Desktop\\Folder-Tổng\\LTW2\\APIImage\\APIImage\\obj\\",
+        "projectPath": "D:\\Đi Học\\[K19]Thực Hành Đồ Án CNTT WEB_API\\Source Code\\BaoCaoAPI\\APIImage\\APIImage.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\Đi Học\\[K19]Thực Hành Đồ Án CNTT WEB_API\\Source Code\\BaoCaoAPI\\APIImage\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -106,7 +111,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

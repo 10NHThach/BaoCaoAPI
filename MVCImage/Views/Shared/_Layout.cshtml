@@ -10,6 +10,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
+    /* Style cho menu */
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top:5px;
+    }
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 110px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    
+    }
+
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+    /* Style cho icon tam giác ngược */
+    .triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    margin-left: 5px;
+    margin-bottom: 3px;
+    }
+
+    /* Style cho các mục trong menu */
+    .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+
+    .dropdown-content a:hover {
+    background-color: #f1f1f1;
+    }
+    
         .navbar-custom {
             background-color: rgba(0, 0, 0, 0.7); 
             border-bottom: 1px solid #e0e0e0;
@@ -35,7 +80,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <a class="navbar-brand" asp-area="" asp-controller="Categories" asp-action="Index">
                     <img src="https://files.oaiusercontent.com/file-ZPVgby3CjSnJpRBeythgTJbW?se=2024-06-04T13%3A31%3A44Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D8b92749c-ed8e-4526-8f95-11b39206f035.webp&sig=YIZJJUR6o8PbzKsH%2BgDuwgiY0pgGc4lAbjVxEFAOHvc%3D" alt="Logo" style="width: 50px; height: 50px; border-radius:50%;" />
                     <strong>Images</strong>
                 </a>
@@ -53,6 +98,16 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="History" asp-action="Index">Lịch sử <i class="fa-regular fa-file"></i> </a>
                         </li>
+                        <li style="position:absolute;right:40px;">
+                            <div class="dropdown">
+                                <button class="dropbtn">@ViewBag.Username<span class="triangle"></span></button>
+                                <div class="dropdown-content">
+                                    <form asp-action="Logout" asp-controller="Account" method="post">
+                                        <button type="submit">Logout</button>
+                                   </form>
+                                </div>
+                            </div>
+                        <li/>
                     </ul>
                 </div>
             </div>

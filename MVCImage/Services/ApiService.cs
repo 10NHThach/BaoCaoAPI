@@ -17,13 +17,14 @@ namespace MVCImage.Services
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             _logger = logger;
         }
-        public async Task LogHistoryAsync(string action, string entity, int entityId)
+        public async Task LogHistoryAsync(string action, string entity, int entityId, string details = "")
         {
             var history = new History
             {
                 Action = action,
                 Entity = entity,
                 EntityId = entityId,
+                Details = details, // Thêm thông tin chi tiết vào lịch sử
                 Timestamp = DateTime.UtcNow
             };
 
