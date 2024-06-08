@@ -11,3 +11,4 @@ obj/
 *.dll
 *.pdb
 *.vs.bin
+.vs/s
